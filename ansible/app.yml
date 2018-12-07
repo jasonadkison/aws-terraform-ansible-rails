@@ -1,0 +1,18 @@
+---
+- hosts: rails
+  remote_user: root
+  become: yes
+  tasks:
+    - name: Update all packages
+      apt:
+        upgrade: dist
+    - name: Install ruby
+      apt:
+        name: ruby-full
+        state: latest
+    - name: Install bundler
+      command: gem install bundler
+    - name: Install nginx
+      apt:
+        name: nginx
+        state: latest
