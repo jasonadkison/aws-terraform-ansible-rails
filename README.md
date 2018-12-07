@@ -9,7 +9,7 @@ This is a discovery project to play with configuration management and infrastruc
 
 # Infrastructure
 
-All terraform related files are located in the `./terraform` directory.
+All terraform related files are located in the `./ops/terraform` directory.
 
 This project is launched on AWS. Ensure you have valid AWS credentials before proceeding. All terraform variables are currently using environment variables that you'll need to have setup on your end.
 
@@ -28,5 +28,5 @@ The instance will be launched in the default VPC. The ubuntu server AMI provided
 
 Aside from creating resources, `terraform apply` does the following:
 
-- uses user data to install python on the instance
-- creates the ansible inventory file using the new instance's IP address
+- uses user-data to bootstrap the instance (ansible requires python to be installed)
+- creates the ansible inventory file automatically using the new instance's public IP address

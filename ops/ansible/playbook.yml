@@ -1,5 +1,5 @@
 ---
-- hosts: rails
+- hosts: all
   remote_user: root
   become: yes
   tasks:

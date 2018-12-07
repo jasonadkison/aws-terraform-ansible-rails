@@ -43,10 +43,10 @@ resource "aws_instance" "hello_rails" {
 }
 
 data "template_file" "hosts" {
-  template = "${file("templates/hosts.cfg")}"
+  template = "${file("templates/ansible-hosts.yml")}"
   depends_on = ["aws_instance.hello_rails"]
   vars {
-    rails_public_ip = "${aws_instance.hello_rails.public_ip}"
+    app_public_ip = "${aws_instance.hello_rails.public_ip}"
   }
 }
 
@@ -55,7 +55,7 @@ resource "null_resource" "hosts" {
     template_rendered = "${data.template_file.hosts.rendered}"
   }
   provisioner "local-exec" {
-    command = "echo '${data.template_file.hosts.rendered}' > ../ansible/inventories/hosts"
+    command = "echo '${data.template_file.hosts.rendered}' > ../ansible/hosts.yml"
   }
 }
 
