@@ -3,7 +3,7 @@
 This is a discovery project to play with configuration management and infrastructure orchestration tools. Please understand the risks of using the provided code.
 
 # Prerequisites
-- ruby (>= 2.3.1)
+- ruby 2.5.1
 - terraform (>= 0.11.8)
 - ansible (>= 2.7.4)
 
